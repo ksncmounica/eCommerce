@@ -1,9 +1,50 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Coupon</title>
+<link rel="stylesheet" href="../stylesheets/coupon.css">
+
 </head>
-<body>
-<p>Coupon</p>
+<body><div id="main">
+    <!-- HTML for SEARCH BAR -->
+    <div id="tfheader">
+        <p id="tname" >List of Coupons</p>
+        <form id="tfnewsearch" method="get" action="">
+            <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+        </form>
+        <div class="tfclear"></div>
+    </div>
+    <form action="http://localhost:4000/coupon/addcoupon" method="GET">
+        <input id="addnew" type="submit" value="Add New"><br><br><br>
+    </form>
+    <div>
+        <table id="couponstable" >
+            <tr><th>#</th><th>Code</th>
+                <th>Amount</th>
+                <th>MinimumCartValue</th>
+                <th>Info</th>
+                <th>Type</th>
+                <th>Active</th>
+                <th>Edit</th>
+                <th>Remove</th></tr>
+            {% for coupon in coupons%}
+
+            <tr><td></td><td>{{ coupon.Code }}</td>
+                <td>{{ coupon.Amount }}</td>
+                <td>{{ coupon.MinimumCartValue }}</td>
+                <td>{{ coupon.Info }}</td>
+                <td>{{ coupon.Type }}</td>
+                <td>{{ coupon.Active }}</td>
+                <td><form action="editcoupon/{{ coupon.id }}">
+                    <input type="submit" value="edit">
+                </form></td>
+                <td>
+                    <form action="deletecoupon/{{ coupon.id }}">
+                        <input type="submit" value="delete">
+                    </form></td></tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
 </body>
 </html>

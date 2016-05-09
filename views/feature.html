@@ -1,9 +1,43 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Feature</title>
+    <link rel="stylesheet" href="../stylesheets/feature.css">
+
 </head>
-<body>
-<p>Feature</p>
+<body><div id="main">
+    <!-- HTML for SEARCH BAR -->
+    <div id="tfheader">
+        <form id="tfnewsearch" method="get" action="">
+            <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+        </form>
+        <div class="tfclear"></div>
+    </div>
+    <form action="http://localhost:4000/feature/addfeature" method="GET">
+        <input id="addnew" type="submit" value="Add New"><br><br><br>
+    </form>
+    <div>
+        <table id="featurestable" >
+            <tr><th>#</th><th>Key</th>
+                <th>Value</th>
+                <th>Active</th>
+                <th>Edit</th>
+                <th>Remove</th></tr>
+            {% for feature in features%}
+
+            <tr><td></td><td>{{ feature.Key }}</td>
+                <td>{{ feature.Value }}</td>
+                <td>{{ feature.Active }}</td>
+                <td><form action="editfeature/{{ feature.id }}">
+                    <input type="submit" value="edit">
+                </form></td>
+                <td>
+                    <form action="deletefeature/{{ feature.id }}">
+                        <input type="submit" value="delete">
+                    </form></td></tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
 </body>
 </html>

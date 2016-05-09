@@ -15,7 +15,7 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^6.2.0",
     "mongodb": "^2.1.18",
-    "mongoose": "4.1.9",
+    "mongoose": "^4.1.9",
     "monk": "^1.0.1",
     "morgan": "^1.6.1",
     "nodemon": "^1.9.2",

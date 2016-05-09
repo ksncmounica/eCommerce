@@ -1,9 +1,30 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Product</title>
+    <link rel="stylesheet" href="../stylesheets/product.css">
 </head>
-<body>
-<p>Product</p>
+<body><div id="main">
+    <!-- HTML for SEARCH BAR -->
+    <div id="tfheader">
+        <p id="tname" >List of Products</p>
+        <form id="tfnewsearch" method="get" action="">
+            <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+        </form>
+        <div class="tfclear"></div>
+    </div>
+    <input id="addnew" type="button" value="Add New"><br><br><br>
+    <div>
+        <table id="productstable" >
+            <tr><th>Id</th><th>Name</th><th>Active</th></tr>
+
+            <tr><td>1</td><td>Dorothy PerkinsWhite Embroidered Blouse</td><td><input type="button" value="A" style=" width:80px;"></td>
+
+            <tr><td>2</td><td>ArrowGrey Slim Fit Formal Trouser</td><td><input type="button" value="A" style=" width:80px;"></td>
+
+            <tr><td>3</td><td>Black CoffeeGrey Solid Formal Trouser</td><td><input type="button" value="A" style=" width:80px;"></td>
+
+        </table>
+    </div>
+
+</div>
 </body>
 </html>

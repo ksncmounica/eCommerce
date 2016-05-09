@@ -7,14 +7,38 @@ var bodyParser = require('body-parser');
 var cons=require('consolidate');
 
 var mongoose = require('mongoose');
+
+
+require('./model/brand')(mongoose);
+require('./model/category')(mongoose);
+require('./model/coupon')(mongoose);
+require('./model/feature')(mongoose);
+require('./model/order')(mongoose);
+require('./model/product')(mongoose);
+
 var app = express();
 var config = require('./config'); // get our config file
-var port = process.env.PORT || 3000; // used to create, sign, and verify tokens
+var port = process.env.PORT || 4000; // used to create, sign, and verify tokens
 
-var routes = require('./routes/login');
+var login = require('./routes/rlogin');
+var brand = require('./routes/rbrand');
+var category = require('./routes/rcategory');
+var coupon = require('./routes/rcoupon');
+var feature = require('./routes/rfeature');
+var product = require('./routes/rproduct');
+var order = require('./routes/rorder');
 
-mongoose.connect(config.database);
+mongoose.connect(config.database, function(err, db) {
+    if (err) {
+        throw err;
+    }
+    console.log("Client DB: connected");
+});
 
+
+
+
+/*require('./model/brand')(mongoose);*/
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -30,7 +54,13 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-app.use('/', routes);
+app.use('/', login);
+app.use('/brand', brand);
+app.use('/category', category);
+app.use('/coupon', coupon);
+app.use('/feature', feature);
+app.use('/product', product);
+app.use('/order', order);
 
 
 

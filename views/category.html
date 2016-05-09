@@ -1,9 +1,47 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Category</title>
+<link rel="stylesheet" href="../stylesheets/category.css">
 </head>
-<body>
-<p>Category</p>
+<body><div id="main">
+    <!-- HTML for SEARCH BAR -->
+    <div id="tfheader">
+        <form id="tfnewsearch" method="get" action="">
+            <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+        </form>
+        <div class="tfclear"></div>
+    </div>
+    <form action="http://localhost:4000/category/addcategory" method="GET">
+    <input id="addnew" type="submit" value="Add New"><br><br><br>
+    </form>
+
+    <div>
+        <table id="categoriestable" >
+            <tr><th>#</th><th>Name</th>
+                <th>InFo</th>
+                <th>category</th>
+                <th>Parentcategory</th>
+                <th>Active</th>
+                <th>Edit</th>
+                <th>Remove</th></tr>
+            {% for category in categories%}
+
+            <tr><td></td><td>{{ category.Name }}</td>
+                <td>{{ category.Info }}</td>
+                <td>{{ category.Category }}</td>
+                <td>{{ category.ParentCategory }}</td>
+                <td>{{ product.Active }}</td>
+                <td><form action="editcategory/{{ category.id }}">
+                    <input type="submit" value="edit">
+                </form></td>
+                <td>
+                <form action="deletecategory/{{ category.id }}">
+                    <input type="submit" value="delete">
+                </form></td></tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
 </body>
 </html>

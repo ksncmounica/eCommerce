@@ -1,9 +1,31 @@
-<!DOCTYPE html>
-<html>
+.<html>
 <head>
-	<title>Brand</title>
+<link rel="stylesheet" href="../stylesheets/brand.css">
 </head>
-<body>
-<p>Brand mounica</p>
+<body><div id="main">
+    <!-- HTML for SEARCH BAR -->
+    <div id="tfheader">
+        <form id="tfnewsearch" method="get" action="">
+            <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+        </form>
+        <div class="tfclear"></div>
+    </div>
+    <input id="addnew" type="button" value="Add New"><br><br><br>
+    <div>
+        <table id="brandstable" >
+            <tr><th>#</th><th>Name</th><th>InFo</th><th>Image</th><th>Active</th><th>Edit/Remove</th></tr>
+            {% for category in categories%}
+
+            <tr><td></td><td>{{ category.Name }}</td>
+                <td>{{ category.Info }}</td>
+                <td>{{ category.Category }}</td>
+                <td>{{ category.ParentCategory }}</td>
+                <td>{{ product.Active }}</td>
+                <td><input type="button"  value="edit"></td></tr>
+
+            {% endfor %} </table>
+    </div>
+
+</div>
 </body>
 </html>

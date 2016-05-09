@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" href="../stylesheets/add.css">
+</head>
+<body>
+
+<div id="header">
+<h3  id="h3">Add New</h3>
+
+<form action="http://localhost:4000/brand/createbrand" method="POST">
+<table id="tablebody">
+
+   <tr><td>Name</td><td><input name="Name" type="text"><br></td></tr>
+   <tr><td>Info</td><td><input name="Info" type="text"><br></td></tr>
+   <tr><td>Image</td><td><input name="Image" type="text"><br></td></tr>
+   <tr><td>Active</td><td><select name="Status">
+    <option value="A">Active</option>
+    <option value="I">InActive</option></select><br></td></tr>
+   
+ <tr><td colspan="2"><input type="submit" value="save"></td></tr>
+
+
+ </table>
+</form>
+   
+</div>
+   
+</body>
+</html>
